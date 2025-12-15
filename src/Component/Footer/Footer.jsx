@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../../../assets/pi.png'
 
 function Footer() {
   return (
@@ -9,8 +10,10 @@ function Footer() {
           
          
           <div className="space-y-2">
-            <h2 className="text-lg font-semibold text-white">
-             VoidNotes 
+            {/* <img src={logo} alt="logo" className='h-[1]' /> */}
+
+            <h2 className="text-lg transition delay-100 duration-300 text-shadow-sm hover:text-shadow-green-500 font-semibold text-white">
+             <img src={logo} className='h-10' alt="" /> Feedlyx
             </h2>
             <p className="max-w-sm text-sm text-white">
               A simple blog project to share thoughts and learn web development.

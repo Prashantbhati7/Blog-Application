@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate,Link} from 'react-router-dom'
 import {Container, LogoutBtn} from '../index'
-
+import logo from './../../../assets/pi.png'
 
 function Header() {
     const authstatus = useSelector((state)=>{
@@ -15,10 +15,15 @@ function Header() {
         ,{name:'Add post',to:'/add-post',active:authstatus}
     ]
   return (
-    <div className='py-3 shadow-lg bg-[#13322b] shadow-[#143e21]'>
+    <div className='py-3 h-[60px] shadow-lg bg-[#13322b] shadow-[#143e21]'>
         <Container>
-            <nav className='flex'>
-                <div className="logo text-shadow-lg shadow-emerald-400"> <Link to={'/'}>  VoidNotes </Link> </div>
+            <nav className='flex h-full'>
+                <div className="logo text-shadow-lg"> 
+                    <Link className='0 h-full g-3  flex '  to={'/'}> 
+                    <span> <img className='object-fill  w-[40px] h-full' src={logo} alt="logo" /> </span>
+                    <span className='my-auto transition delay-100 duration-300 text-shadow-sm hover:text-shadow-green-400 '>Feedlyx</span>
+                      </Link> 
+                </div>
                 <ul className='flex justify-evenly ml-auto gap-3'> 
                      { navItems.map((item,idx)=>{
                          if (item.active) {

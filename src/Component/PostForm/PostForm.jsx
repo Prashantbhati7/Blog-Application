@@ -81,7 +81,7 @@ function PostForm({post}) {
         </div>)} 
         <Select options={['active','inactive']} label='Status' className='mb-4' {...register("status",{required:true})} />
 
-        <Button type="submit" bgcolor={post ? 'bg-green-500' : undefined} className="w-full" >{post?'update':'submit'}</Button>
+        <Button type="submit" bgcolor={post ? 'bg-green-500' : undefined} className="w-full " >{post?'update':'submit'}</Button>
     </div>
    </form>
   )
