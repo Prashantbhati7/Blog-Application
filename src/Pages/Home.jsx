@@ -23,7 +23,7 @@ function Home() {
         <Container >
           <div className='flex flex-wrap '>
             <div className='p-2 w-full'>
-              <h1 className='text-2xl text-amber-50 hover:text-green-500 font-bold'>No Posts !!! </h1>
+              <h1 className='text-2xl text-amber-50 hover:text-green-500 font-bold'>No Posts ! </h1>
             </div>
           </div>
         </Container>
