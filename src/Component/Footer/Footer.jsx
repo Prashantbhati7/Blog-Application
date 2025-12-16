@@ -23,7 +23,7 @@ function Footer() {
           {/* Contact */}
           <div className="space-y-2 text-sm">
             <h3 className="font-medium text-shadow-white">Contact</h3>
-            <p className="text-white">Email: VoidNotes@gmail.com</p>
+            <p className="text-white">Email: Feedlyx@gmail.com</p>
           </div>
 
           {/* Social Links */}
@@ -60,7 +60,7 @@ function Footer() {
 
         {/* Bottom */}
         <div className="mt-8 border-t border-gray-200 pt-4 text-center text-xs text-shadow-white">
-          © {new Date().getFullYear()} MyBlog. Built for learning.
+          © {new Date().getFullYear()} Feedlyx. Built for learning.
         </div>
 
       </div>

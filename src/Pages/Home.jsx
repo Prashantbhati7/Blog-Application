@@ -10,7 +10,7 @@ function Home() {
   useEffect(()=>{
     PostService.getAllPost().then((data)=>{
        if (data) {
-        console.log("posts are ",data.rows);
+        
         setposts(data.rows);
         
        }

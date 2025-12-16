@@ -30,7 +30,7 @@ function Post() {
     
     const deletePost = ()=>{
         PostService.deletePost(post.$id).then((status)=>{
-            console.log("post deleted and status is ",status);
+            
             if (status){
                 PostService.deleteFile(post.featuredImage);
                 navigate('/')
