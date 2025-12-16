@@ -8,11 +8,11 @@ function AllPosts() {
     const [allposts, setallposts] = useState([]);
     useEffect(()=>{
         PostService.getAllPost().then((data)=>{
-            console.log("got all posts from post service.getallpost",data);
+            
             setallposts(data.rows);
-            console.log("posts are ",data.rows);
+            
         }).finally(()=>{
-            console.log("got all posts ");
+           
             setloading(false);
         })
     },[]);

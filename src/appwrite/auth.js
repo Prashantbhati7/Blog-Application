@@ -8,8 +8,7 @@ export class AuthService{              // from documentation + some optimization
     constructor(){                     // if i use manual account.create then 
         this.client.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId);
         this.account = new Account(this.client);
-        // console.log("client created ",this.client);
-        // console.log("appwrite  account is ",this.account);
+        
     }
     async createAccount({email,password,name}){
         try{
@@ -36,10 +35,10 @@ export class AuthService{              // from documentation + some optimization
     }
     async getCurrentUser(){
         try{
-            console.log("getting account from appwrite ");
+            // console.log("getting account from appwrite ");
             return await this.account.get();
         }catch(error){
-            console.log("error in getting account from appwrite ");
+            
             throw error;
         }
     }

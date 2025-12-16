@@ -15,7 +15,7 @@ export class Service{
 
     async createPost({title,slug,content,featuredImage,status,userid}){
         try{
-            console.log("title is ",title,"content is ",content);
+           
             return await this.tableDB.createRow(conf.appwriteDBid,conf.appwriteCollectionId,slug,  // i am taking slug as rowid 
                 {title,content,featuredImage,status,userid});
         }catch(error){
@@ -74,8 +74,7 @@ export class Service{
         }
     }
     getFilePreview(fileId){
-        console.log("file id is ",fileId);
-        console.log("response from appwrite file preview is ",this.bucket.getFileView(conf.appwriteBucketId,fileId));
+       
         return this.bucket.getFileView(conf.appwriteBucketId,fileId)
     }
 };

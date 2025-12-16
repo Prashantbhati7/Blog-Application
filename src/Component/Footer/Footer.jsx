@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../../../assets/pi.png'
 
 function Footer() {
   return (
@@ -9,8 +10,10 @@ function Footer() {
           
          
           <div className="space-y-2">
-            <h2 className="text-lg font-semibold text-white">
-             VoidNotes 
+            {/* <img src={logo} alt="logo" className='h-[1]' /> */}
+
+            <h2 className="text-lg transition delay-100 duration-300 text-shadow-sm hover:text-shadow-green-500 font-semibold text-white">
+             <img src={logo} className='h-10' alt="" /> Feedlyx
             </h2>
             <p className="max-w-sm text-sm text-white">
               A simple blog project to share thoughts and learn web development.
@@ -20,7 +23,7 @@ function Footer() {
           {/* Contact */}
           <div className="space-y-2 text-sm">
             <h3 className="font-medium text-shadow-white">Contact</h3>
-            <p className="text-white">Email: VoidNotes@gmail.com</p>
+            <p className="text-white">Email: Feedlyx@gmail.com</p>
           </div>
 
           {/* Social Links */}
@@ -57,7 +60,7 @@ function Footer() {
 
         {/* Bottom */}
         <div className="mt-8 border-t border-gray-200 pt-4 text-center text-xs text-shadow-white">
-          © {new Date().getFullYear()} MyBlog. Built for learning.
+          © {new Date().getFullYear()} Feedlyx. Built for learning.
         </div>
 
       </div>

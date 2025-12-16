@@ -26,7 +26,7 @@ function SignUp() {
           }
       }
     }catch(error){
-       console.log("error in sign up : " , error);
+      
        setError(error.message);
     }
   }
