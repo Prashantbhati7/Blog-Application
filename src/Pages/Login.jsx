@@ -4,14 +4,16 @@ import { login as authlogin,logout } from '../store/authSlice'
 import {Button,Input,Select} from '../Component'
 import { useDispatch } from 'react-redux';
 import {useForm} from 'react-hook-form';
+import { Helix } from 'ldrs/react';
 import { useNavigate ,Link} from 'react-router-dom';
 function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {register,handleSubmit} = useForm();
     const [error,setError] = useState("");
-
+    const [loading,setloading] = useState(false);
     const login = async(data)=>{
+        setloading(true);
         setError("");
         try {
             const session = await authServie.login(data);
@@ -20,17 +22,26 @@ function Login() {
                 if (userData){
                     dispatch(authlogin(userData));
                     navigate('/');
+                    setloading(false);
                 }
             
             }
            
         } catch (error) {
             setError(error.message);
+            setloading(false);
         }
+
     }
 
 
-  return (
+  return loading?<div className=' min-h-screen bg-black text-white text-center text-5xl flex flex-col gap-10 items-center justify-center'> 
+        <Helix
+            size="100"
+            speed="2.5"
+            color="white" /> 
+            <div>Loading...</div>
+  </div>:(
     <div className='flex h-full py-8 justify-center mt-5 items-center w-full'>
         <div className='mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10 '>
         <div className="mb-2 flex justify-center">

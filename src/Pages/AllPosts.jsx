@@ -22,7 +22,7 @@ function AllPosts() {
             <div className="flex flex-wrap ">
             {allposts.map(p=>
                 (<div className="p-2 w-1/4" key={p.$id}>
-                    {console.log('post detaila are ',p)}
+                    
                     <PostCard {...p} />
                 </div>
                 )

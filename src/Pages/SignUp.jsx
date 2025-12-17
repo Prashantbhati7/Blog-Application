@@ -3,18 +3,19 @@ import React, { useState } from 'react'
 import authServie from '../appwrite/auth'
 import { useDispatch } from 'react-redux'
 import { login } from '../store/authSlice'
-import { useForm } from 'react-hook-form'
+import { set, useForm } from 'react-hook-form'
 import { useNavigate,Link } from 'react-router-dom'
 import { Input,Button } from '../Component'
-
+import { Helix } from 'ldrs/react'
 function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [error,setError] = useState("");
   const {register,handleSubmit} = useForm();
-
+  const [loading,setloading] = useState(false);
 
   const signup = async(data)=>{
+    setloading(true);
     setError("");
     try{
       const session = await authServie.createAccount(data);
@@ -23,14 +24,22 @@ function SignUp() {
           if (userData){
             dispatch(login(userData));
              navigate('/');
+             setloading(false);
           }
       }
     }catch(error){
       
        setError(error.message);
+       setloading(false);
     }
   }
-  return (
+  return loading?<div className=' min-h-screen bg-black text-white text-center text-5xl flex flex-col gap-10 items-center justify-center'> 
+        <Helix
+            size="100"
+            speed="2.5"
+            color="white" /> 
+            <div>Loading...</div>
+  </div>:(
     <div className='flex py-8 justify-center mt-5 items-center'>
         <div className='mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10 '> 
             <div className='mb-2 flex justify-center'> 

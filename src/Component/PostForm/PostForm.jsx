@@ -8,7 +8,7 @@ import PostService from "../../appwrite/config.js";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
+import { Helix } from "ldrs/react";
 
 function PostForm({post}) {
    
@@ -18,8 +18,9 @@ function PostForm({post}) {
          return state.userdata
         });
     const navigate = useNavigate();
-
+    const [loading , setloading] = useState(false);
     const submit = async (data)=>{
+        setloading(true);
         if (post){
             const file = data.image[0]?PostService.uploadFile(data.image[0]):null;
             if (file){
@@ -42,6 +43,7 @@ function PostForm({post}) {
                }
             }
         }
+        setloading(false);
     }
 
     const slugTransform = useCallback((value)=>{
@@ -66,7 +68,13 @@ function PostForm({post}) {
             subscription.unsubscribe();         // for optimization (memory management )
         }
     },[watch,slugTransform,setValue]);
-  return (
+  return loading?<div className=' min-h-screen bg-black text-white text-center text-5xl flex flex-col gap-10 items-center justify-center'> 
+        <Helix
+            size="100"
+            speed="2.5"
+            color="white" /> 
+            <div>Loading...</div>
+  </div>:(
    <form className="flex flex-wrap" onSubmit={handleSubmit(submit)}>
     <div className="w-2/3 px-2">
         <Input label='Title: ' placeholder='Title' className='mb-4' {...register("title",{required:"title is required !"})}></Input>

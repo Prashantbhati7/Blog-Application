@@ -36,7 +36,7 @@ function EditPost() {
       
      <PostForm post={{...post}} ></PostForm> 
     </Container> */}
-    {console.log("post is ",post)}
+    
     <PostForm post={{...post}} />
   </div>):(<div className='text-white bg-black text-center text-5xl'> No Posts Available ... </div>) }
   </>
