@@ -27,7 +27,7 @@ function PostForm({post}) {
             }
             const dbpost = await PostService.updatePost(post.$id,{...data,featuredImage:file?file.$id:undefined});
             if (dbpost){
-                navigate(`/`)
+                navigate(`/post/${post.$id}`)
             }
             
         }
