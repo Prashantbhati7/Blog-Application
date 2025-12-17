@@ -14,6 +14,7 @@ function App() {
     <>
       <BrowserRouter>
       <Routes>
+       
         <Route element={<HomeLayout/>}>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/addpost" element={<PostForm/>}></Route>

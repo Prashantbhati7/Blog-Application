@@ -15,7 +15,7 @@ function Header() {
         ,{name:'Add post',to:'/add-post',active:authstatus}
     ]
   return (
-    <div className='py-3 h-[60px] shadow-lg bg-[#13322b] shadow-[#143e21]'>
+    <div className='py-3 h-[60px] shadow-lg sticky top-0 w-full bg-[#13322b] shadow-[#143e21]'>
         <Container>
             <nav className='flex h-full'>
                 <div className="logo text-shadow-lg"> 

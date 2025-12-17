@@ -37,7 +37,7 @@ function Home() {
             color="white" /> 
             <div>Loading...</div>
   </div> :(
-    <div className='w-full py-8 '> 
+    <div className='w-full min-h-screen py-8'> 
       <Container>
          <div className='flex flex-wrap'>
            {posts.map((post,id)=>(
@@ -48,6 +48,7 @@ function Home() {
            )}
          </div>
       </Container>
+      
     </div>
   )
 }

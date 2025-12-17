@@ -7,7 +7,6 @@ import { Helix } from 'ldrs/react'
 import 'ldrs/react/Helix.css'
 import {login,logout} from '../store/authSlice.js'
 
-
 function HomeLayout() {
     const [loading,setloading] = useState(true);
     const dispatch = useDispatch();
@@ -26,10 +25,12 @@ function HomeLayout() {
         })
     },[])
   return !loading? (<div className='min-h-screen text-white bg-[#000000]'>
+        
         <Header></Header>
         <Outlet/>
-        <Footer/>
         
+        <Footer/>
+       
     </div>):(<div className=' min-h-screen bg-black text-white text-center text-5xl flex flex-col gap-10 items-center justify-center'> 
         <Helix
   size="100"

@@ -3,7 +3,7 @@ import logo from '../../../assets/pi.png'
 
 function Footer() {
   return (
-   <footer className="border-t mb-0 fixed w-full h-full text-white border-gray-200 bg-[#13322b]">
+   <footer className="border-t   w-full text-white border-gray-200 bg-[#13322b]">
       <div className="mx-auto max-w-6xl px-6 py-8">
         
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
