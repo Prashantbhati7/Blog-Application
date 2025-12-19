@@ -13,13 +13,22 @@ export class Service{
         this.bucket = new Storage(this.client);
     }
 
-    async createPost({title,slug,content,featuredImage,status,userid}){
+    async createPost({title,slug,content,featuredImage,status,userid,username}){
         try{
            
             return await this.tableDB.createRow(conf.appwriteDBid,conf.appwriteCollectionId,slug,  // i am taking slug as rowid 
-                {title,content,featuredImage,status,userid});
+                {title,content,featuredImage,status,userid,username});
         }catch(error){
             console.log('error: ',error);
+        }
+    }
+     async createComment({slug,username,userid,content}){
+        try{
+            
+            return await this.tableDB.createRow(conf.appwriteDBid,conf.appwriteCommenttable,ID.unique(),{postid:slug,username:username,userid:userid,content:content})
+        }catch(error){
+            console.log("error in comment creation ",error)
+            return false
         }
     }
     async updatePost(slug,{title,content,featuredImage,status}){    // No need of userid as will give option of update to owner only 
@@ -28,6 +37,28 @@ export class Service{
             return await this.tableDB.updateRow(conf.appwriteDBid,conf.appwriteCollectionId,slug,{title,content,featuredImage,status});
         }catch(error){
             console.log("error",error);
+        }
+    }
+     async deleteComment(commentid){
+        try{
+            await this.tableDB.deleteRow(conf.appwriteDBid,conf.appwriteCommenttable,commentid);
+            return true;
+        }catch(error){
+            console.log("error : ",error);
+            return false;
+        }
+    }
+     async getPostComment(slug){
+        try{
+             const allcomment =  await this.tableDB.listRows(conf.appwriteDBid,conf.appwriteCommenttable);
+             
+             const postcomment = Array.from(allcomment.rows).filter((comment)=>(comment.postid==slug));
+             
+             return postcomment;
+
+        }catch(error){
+            console.log("error",error);
+            return false
         }
     }
     async deletePost(slug){

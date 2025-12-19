@@ -37,7 +37,7 @@ function PostForm({post}) {
             const file = await PostService.uploadFile(data?.image?.[0]);
             
             if (file){
-               const post = await PostService.createPost({...data,featuredImage:file.$id ,userid:userData.$id});
+               const post = await PostService.createPost({...data,featuredImage:file.$id ,userid:userData.$id,username:userData.name});
                if (post){
                 navigate(`/post/${post.$id}`)
                }
