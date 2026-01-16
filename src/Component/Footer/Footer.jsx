@@ -20,13 +20,13 @@ function Footer() {
             </p>
           </div>
 
-          {/* Contact */}
+          
           <div className="space-y-2 text-sm">
             <h3 className="font-medium text-shadow-white">Contact</h3>
             <p className="text-white">Email: Feedlyx@gmail.com</p>
           </div>
 
-          {/* Social Links */}
+          
           <div className="space-y-2 text-sm">
             <h3 className="font-medium text-white">Follow</h3>
             <div className="flex gap-4">

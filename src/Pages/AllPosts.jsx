@@ -21,7 +21,7 @@ function AllPosts() {
         <Container>
             <div className="flex flex-wrap ">
             {allposts.map(p=>
-                (<div className="p-2 w-1/4" key={p.$id}>
+                (<div className="p-2 w-1/1 sm:w-1/2 md:w-1/2 lg:w-1/4" key={p.$id}>
                     
                     <PostCard {...p} />
                 </div>
